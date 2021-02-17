@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Store Edit</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <h1>Edit Stock Page</h1>
+        <nav class="editRoute">
+            <nav class="homeButton">
+                <a href="/store"><button>Home</button></a>
+            </nav>
+            <form action="/store/<%=store.id%>?_method=PUT" method="POST">
+                <!--  NOTE: the form is pre-populated with values for the server-->
+                Name: <input type="text" name="name" value="<%=store.name%>"/><br/>
+                Description: <input type="text" name="description" value="<%=store.description%>"/><br/>
+                Stock Image: <input type="url" name="img" value="<%= store.img %>"/><br/>
+                Price: <input type="number" name="price" value="<%= store.price %>"/><br/>
+                The Stock Quantity:
+                <input type="number" name="qty" value="<%= store.qty %>"/><br/>
+                <input type="submit" name="" value="Submit Changes"/>
+            </form>
+            
+        </nav>
+        
+    </body>
+</html>
