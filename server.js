@@ -1,13 +1,13 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3838;
 const mongoose = require('mongoose');
 const storeController = require('./controllers/store');
 const methodOverride = require('method-override');
 
-mongoose.connect('mongodb://localhost:27017/basiccrud', {
-  useNewUrlParser: true,
-});
+const port = process.env.PORT || 3838;
+const mongoURI = process.env.DB_URI || 'mongodb://localhost:27017/basiccrud';
+
+mongoose.connect(mongoURI, { useNewUrlParser: true });
 mongoose.connection.once('open', () => {
   console.log('connected to mongo');
 });
